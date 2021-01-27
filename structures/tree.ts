@@ -1,3 +1,4 @@
+// @ts-ignore
 import { asTree } from 'treeify'
 
 type TreeNode = {

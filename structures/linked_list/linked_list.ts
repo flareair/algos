@@ -1,6 +1,6 @@
-export class MyListNode {
+export class ListNode {
     public val: number
-    public next: MyListNode | null = null
+    public next: ListNode | null = null
     
     constructor(x: number) {
         this.val = x
@@ -8,9 +8,9 @@ export class MyListNode {
 }
 
 export class MyLinkedList {
-    public head: MyListNode | null = null
+    public head: ListNode | null = null
 
-    findByIndex(index: number): MyListNode | null {
+    findByIndex(index: number): ListNode | null {
         let counter = 0
         let node = this.head
 
@@ -26,7 +26,7 @@ export class MyLinkedList {
         return node
     }
 
-    getTail(): MyListNode | null {
+    getTail(): ListNode | null {
         let tail = this.head
 
         if (!tail) {
@@ -77,7 +77,7 @@ export class MyLinkedList {
     }
 
     addAtHead(val: number): void {
-        const newHead = new MyListNode(val)
+        const newHead = new ListNode(val)
         
         if (!this.head) {
             this.head = newHead
@@ -89,7 +89,7 @@ export class MyLinkedList {
     }
 
     addAtTail(val: number): void {
-        const newTail = new MyListNode(val)
+        const newTail = new ListNode(val)
 
         const tail = this.getTail()
 
@@ -122,7 +122,7 @@ export class MyLinkedList {
         }
 
         const prevIndexNext = prevIndex.next
-        const nodeToInsert = new MyListNode(val)
+        const nodeToInsert = new ListNode(val)
 
         prevIndex.next = nodeToInsert
         nodeToInsert.next = prevIndexNext

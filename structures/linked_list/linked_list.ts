@@ -7,7 +7,7 @@ export class ListNode {
     }
 }
 
-export class MyLinkedList {
+export class LinkedList {
     public head: ListNode | null = null
 
     findByIndex(index: number): ListNode | null {
@@ -146,7 +146,7 @@ export class MyLinkedList {
     }
 }
 
-// const list = new MyLinkedList()
+// const list = new LinkedList()
 
 // list.addAtHead(2)
 // list.addAtHead(1)

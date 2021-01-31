@@ -1,5 +1,5 @@
-import { LinkedList, createFromArray, printToConsole } from './common'
-import { ListNode } from './linked_list'
+import { ListNode, createFromArray, print } from './common'
+import assert from 'assert'
 
 function oddEvenList(head: ListNode | null): ListNode | null {
     if (head === null) {
@@ -29,6 +29,8 @@ function oddEvenList(head: ListNode | null): ListNode | null {
     return head
 }
 
-const list = createFromArray([1, 2, 3, 4, 5, 6, 7])
 
-printToConsole(oddEvenList(list))
+if (require.main === module) {
+    const list = createFromArray([1, 2, 3, 4, 5, 6, 7])
+    assert.strict.equal(print(oddEvenList(list)), '1 -> 3 -> 5 -> 7 -> 2 -> 4 -> 6 -> X')
+}

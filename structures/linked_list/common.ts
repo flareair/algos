@@ -23,7 +23,7 @@ export const createFromArray = (values: number[]): ListNode | null => {
     return head
 }
 
-const print = (head: ListNode | null): string => {
+export const print = (head: ListNode | null): string => {
     let current: ListNode = head
     let output: string = ''
 

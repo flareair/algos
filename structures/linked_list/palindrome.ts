@@ -2,56 +2,53 @@ import { ListNode, createFromArray, print } from './common'
 import assert from 'assert'
 
 function isPalindrome(head: ListNode | null): boolean {
-    const length = getLength(head)
+    let p2 = getMiddle(head)
+    let p1 = head
 
-    if (length <= 1) {
-        return true
-    }
-    
-    const middleIndex = Math.floor(length / 2)
-    let index = 1
-    let newHead = head
+    p2 = reverse(p2)
 
-    // reverse first part
-    while (index < middleIndex) {
-        let temp = newHead
-        newHead = head.next
-        head.next = head.next?.next || null
-        newHead.next = temp
-
-        index++
-    }
-    // get pointer to start of non-reversed part
-    let middlePointer = length % 2 === 0 ? head.next : head.next.next
-    // compare reversed part to the end of list
-    index = 1
-    while (index <= middleIndex) {
-        if (newHead.val !== middlePointer.val) {
+    while (p2) {
+        if (p1.val !== p2.val) {
             return false
         }
-        newHead = newHead.next
-        middlePointer = middlePointer.next
-        index++
+
+        p1 = p1.next
+        p2 = p2.next
     }
 
     return true
 }
 
-function getLength(head: ListNode): number {
-    let counter: number = 0
-    let current: ListNode = head
+function getMiddle(head: ListNode) {
+    let slow = head
+    let fast = head
 
-    while (current) {
-        counter += 1
-        current = current.next
+    while (fast) {
+        slow = slow.next
+        fast = fast.next?.next
     }
 
-    return counter
+    return slow
+}
+
+function reverse(head: ListNode | null): ListNode | null {
+    let current = head
+    let prev = null
+
+    // very clever
+    while (current) {
+        let next = current.next
+        current.next = prev
+        prev = current
+        current = next
+    }
+
+    return prev
 }
 
 if (require.main === module) {
-    assert.strict.equal(isPalindrome(null), false)
-    assert.strict.equal(isPalindrome(createFromArray([1])), false)
+    assert.strict.equal(isPalindrome(null), true)
+    assert.strict.equal(isPalindrome(createFromArray([1])), true)
     assert.strict.equal(isPalindrome(createFromArray([1, 2])), false)
     assert.strict.equal(isPalindrome(createFromArray([1, 2])), false)
     assert.strict.equal(isPalindrome(createFromArray([1, 2, 3])), false)

@@ -1,4 +1,5 @@
 import { ListNode } from './linked_list'
+export * from './linked_list'
 
 export const createFromArray = (values: number[]): ListNode | null => {
     if (values?.length === 0) {

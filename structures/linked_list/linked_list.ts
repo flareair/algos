@@ -145,25 +145,3 @@ export class LinkedList {
         prevIndex.next = nodeToRemove?.next || null
     }
 }
-
-// const list = new LinkedList()
-
-// list.addAtHead(2)
-// list.addAtHead(1)
-// list.addAtTail(4)
-// list.addAtIndex(2, 3)
-// list.addAtIndex(0, 0)
-// list.addAtIndex(5, 5)
-
-// console.log('Length ', list.getLength())
-
-// console.log(list.print())
-
-// list.deleteAtIndex(0)
-// list.deleteAtIndex(5)
-// list.deleteAtIndex(7)
-// list.deleteAtIndex(2)
-
-// console.log('Length ', list.getLength())
-
-// console.log(list.print())
